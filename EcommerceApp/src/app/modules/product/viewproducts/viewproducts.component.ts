@@ -39,5 +39,5 @@ export class ViewproductsComponent implements OnInit {
         (data) => console.log(data),
         (error) => console.log(error)
       );
-    }
+    }  
 }
