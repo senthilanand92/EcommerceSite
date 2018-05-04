@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ProductService {
@@ -10,10 +12,15 @@ export class ProductService {
 , productPrice: '60$' }
   ];
 
-  constructor() { }
+  constructor(private httpclient: HttpClient) { }
 
-  getProducts() {
-    return this.Products;
+  getProducts(): Observable<any[]> | any | boolean {
+
+    const allProducts = this.httpclient.get('https://products-967f5.firebaseio.com/.json',{
+      observe: 'body',
+      responseType: 'json'
+  });
+    return allProducts;
   }
 
 }
