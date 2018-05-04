@@ -1,0 +1,24 @@
+<div class="container productGroup">
+<div class="row">
+ 
+<div *ngFor="let product of Products" class="item  col-xs-4 col-lg-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="group inner list-group-item-heading">
+                {{product.productname}}</h4>
+            <p class="group inner list-group-item-text">
+                {{product.productDescription}} </p> 
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <p class="lead">
+                        {{product.productPrice}} </p>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
