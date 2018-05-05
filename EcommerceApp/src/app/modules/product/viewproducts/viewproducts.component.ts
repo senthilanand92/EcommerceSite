@@ -8,23 +8,29 @@ import {ProductService} from '../service/product.service';
 })
 export class ViewproductsComponent implements OnInit {
 
-  products = [];
+  products: Array<any>;
 
-  moreProducts = [
-    { productname: 'Camera4' , productDescription: 'This is used to take photos', productPrice: '20$' },
-    { productname: 'Phone4' , productDescription: 'This is used to call people and take photos wohoo', productPrice: '40$' },
-    { productname: 'Laptop4' , productDescription: 'This is used to call people and take photos and develop your applications'
-    , productPrice: '60$' }
-  ];
+  moreProducts = 
+  {
+     "p123": { "productname": "Camera4" , "productDescription": "This is used to take photos", "productPrice": "20$" },
+     "p456" : { "productname": "Phone4" , "productDescription": "This is used to call people and take photos wohoo", "productPrice": "40$" },
+     "p789" : { "productname": "Laptop4" , "productDescription": "This is used to call people and take photos and develop your applications"
+      , "productPrice": "60$" }
+    };
 
 
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
       this.productService.getProducts().subscribe(
-      (data: any[]) => {
-        console.log(data)
-        this.products = data;
+      (data: any) => {
+        console.log(data);
+        let temparr = [];
+     for (let key in data){
+      temparr.push(data[key]);
+     }
+     console.log(temparr);
+        this.products = temparr;
       }
       );
     }
@@ -33,7 +39,6 @@ export class ViewproductsComponent implements OnInit {
       alert("adding product");
       let tempProducts = [];
       tempProducts.push(...this.products);
-      tempProducts.push(...this.moreProducts);
       console.log(tempProducts)
       this.productService.addProducts(tempProducts).subscribe(
         (data) => console.log(data),
