@@ -1,5 +1,5 @@
 <div class="container productGroup">
-  <button (click)="addProduct()">Add product</button>
+
 <div class="row">
 <div *ngFor="let product of products" class="item  col-xs-4 col-lg-4">
     <div class="thumbnail">
@@ -21,6 +21,14 @@
                 </div>
                 
             </div>
+        </div>
+    </div>
+    </div>
+    <div class="item  col-xs-4 col-lg-4">
+        <div class="thumbnail">
+            <div class="caption">
+                    <button class="btn btn-success" (click)="addProduct()"> + Add product</button>         
+             </div>
         </div>
     </div>
 </div>
